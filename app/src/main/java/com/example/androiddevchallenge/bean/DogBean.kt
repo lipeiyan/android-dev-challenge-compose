@@ -15,33 +15,4 @@
  */
 package com.example.androiddevchallenge.bean
 
-import android.os.Parcel
-import android.os.Parcelable
-
-data class DogBean(var name: String, var age: String, var imgResId: Int) : Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readString().toString(),
-        parcel.readString().toString(),
-        parcel.readInt()
-    )
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(name)
-        parcel.writeString(age)
-        parcel.writeInt(imgResId)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<DogBean> {
-        override fun createFromParcel(parcel: Parcel): DogBean {
-            return DogBean(parcel)
-        }
-
-        override fun newArray(size: Int): Array<DogBean?> {
-            return arrayOfNulls(size)
-        }
-    }
-}
+data class DogBean(var name: String, var age: String, var imgResId: Int)
